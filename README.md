@@ -43,7 +43,7 @@ The AWS layer of our architecture provides the foundational infrastructure that 
    - **Desired Capacity:** 5
    - **Spot Instances:** Enabled
 
-  5. **mng-spot-prod-32g**
+5. **mng-spot-prod-32g**
    - **Instance Types:** r6i.xlarge, r5.xlarge, r5a.xlarge
    - **Availability Zones:** eu-west-3a, eu-west-3b, eu-west-3c
    - **Min/Max Size:** 1/8
