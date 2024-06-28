@@ -71,7 +71,6 @@ In our architecture, we have implemented several Kubernetes StorageClass objects
 2.**gp2-retain-sc1**
   - **Type:** gp2 (General Purpose SSD)
   - **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
-## Kubernetes Layer
 
 3.**gp2-delete-sc** 
   - **Type:** gp3 (General Purpose SSD)
@@ -81,7 +80,7 @@ In our architecture, we have implemented several Kubernetes StorageClass objects
   - **Type:** gp3 (General Purpose SSD)
   - **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
 
-## Kubernets Layer
+## Kubernetes Layer
 This part provides an overview of the Kubernetes layer within our architecture. The Kubernetes layer is organized into Two main layers:  the Kubernetes physical layer, and the Kubernetes logical layer. This section focuses on  describing the use of different resources, control plane, and worker nodes placed in node groups. Each worker node contains different namespaces, each namespace hosts deployments with pods and services, and other namespaces contain StatefulSets for databases, PVCs, PVs from EBS, and services.
 
 ### Control Plane
@@ -99,30 +98,30 @@ Worker nodes run the actual workloads, including applications and services. Thes
 5. **mng-spot-prod-32g:** Spot instances with 32Gi volume size.
 6. **mng-spot-prod:** General purpose spot instances, volume size 300Gi.
 
-### Namespaces
+#### Namespaces
 
 Namespaces are used to isolate resources within the Kubernetes cluster. Each namespace contains various Kubernetes resources, organized for specific functionalities:
 
 - **Application Namespaces:** Contain deployments with pods and services for stateless applications.
 - **Database Namespaces:** Contain StatefulSets, PVCs, and PVs for stateful applications like databases.
 
-### Deployments and Pods
+#### Deployments and Pods
 
 Deployments manage stateless applications, ensuring that the specified number of replicas are running at any given time. Each deployment creates and manages pods, which are the smallest deployable units in Kubernetes.
 
-### Services
+#### Services
 
 Services provide a stable IP address and DNS name for accessing the pods, enabling communication within the cluster and with external clients.
 
-### StatefulSets
+#### StatefulSets
 
 StatefulSets manage stateful applications, ensuring the deployment and scaling of a set of pods with unique identities and persistent storage. This is particularly useful for applications like databases.
 
-### Persistent Volume Claims (PVCs) and Persistent Volumes (PVs)
+#### Persistent Volume Claims (PVCs) and Persistent Volumes (PVs)
 
 PVCs are requests for storage by users, and PVs are the actual storage resources in the cluster. PVCs bind to PVs to provide persistent storage for pods. In our setup, PVs are provisioned using Amazon EBS.
 
-#### Storage Classes
+##### Storage Classes
 
 We use different storage classes for different types of volumes:
 - **gp2-delete-sc**: Storage class with gp2 volumes and a delete reclaim policy.
