@@ -30,25 +30,25 @@ The AWS layer of our architecture provides the foundational infrastructure that 
 
 
 3. **backup-mng-ondemand-prod**
-  - **Instance Types:** t3a.xlarge, t2.xlarge, m6i.xlarge, m5.xlarge, m5a.xlarge
-  - **Availability Zones:** eu-west-3a, eu-west-3b, eu-west-3c
-  - **Min/Max Size:** 0/4
-  - **Desired Capacity:** 0
+   - **Instance Types:** t3a.xlarge, t2.xlarge, m6i.xlarge, m5.xlarge, m5a.xlarge
+   - **Availability Zones:** eu-west-3a, eu-west-3b, eu-west-3c
+   - **Min/Max Size:** 0/4
+   - **Desired Capacity:** 0
 
 
 4. **mng-spot-prod-16g**
-  - **Instance Types:** t3a.xlarge, t3.xlarge, t2.xlarge, m6i.xlarge, m5.xlarge, m5a.xlarge
-  - **Availability Zones:** eu-west-3a, eu-west-3b, eu-west-3c
-  - **Min/Max Size:** 2/12
-  - **Desired Capacity:** 5
-  - **Spot Instances:** Enabled
+   - **Instance Types:** t3a.xlarge, t3.xlarge, t2.xlarge, m6i.xlarge, m5.xlarge, m5a.xlarge
+   - **Availability Zones:** eu-west-3a, eu-west-3b, eu-west-3c
+   - **Min/Max Size:** 2/12
+   - **Desired Capacity:** 5
+   - **Spot Instances:** Enabled
 
   5. **mng-spot-prod-32g**
-  - **Instance Types:** r6i.xlarge, r5.xlarge, r5a.xlarge
-  - **Availability Zones:** eu-west-3a, eu-west-3b, eu-west-3c
-  - **Min/Max Size:** 1/8
-  - **Desired Capacity:** 2
-  - **Spot Instances:** Enabled
+   - **Instance Types:** r6i.xlarge, r5.xlarge, r5a.xlarge
+   - **Availability Zones:** eu-west-3a, eu-west-3b, eu-west-3c
+   - **Min/Max Size:** 1/8
+   - **Desired Capacity:** 2
+   - **Spot Instances:** Enabled
 
 6. **mng-spot-prod**
    - **Instance Types:** t3a.xlarge, t2.xlarge, m6i.xlarge, m5.xlarge, m5a.xlarge
