@@ -3,4 +3,4 @@
   
 - The architecture was designed by [Draw.io](https://app.diagrams.net/) .
 
--The architecture is composed of 3 layers : AWS layer , Kubernestes Physical layer and Kubernestes logical layer.
+- The architecture is composed of 3 layers : AWS layer , Kubernestes Physical layer and Kubernestes logical layer.
