@@ -63,37 +63,19 @@ The AWS layer of our architecture provides the foundational infrastructure that 
 #### Storage
 
 In our architecture, we have implemented several Kubernetes StorageClass objects to manage persistent storage efficiently. These storage classes define how storage is dynamically provisioned and managed within our EKS cluster, using Amazon EBS (Elastic Block Store) as the underlying storage provider. Below are the details of the configured storage classes:
-1.**gp2-delete-sc** 
 
-- **Provisioner:** ebs.csi.aws.com
-- **Filesystem Type:** ext4
-- **Type:** gp2 (General Purpose SSD)
-- **Reclaim Policy:** Delete (deletes the volume when the PVC is deleted)
-- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
+1.**gp2-delete-sc** 
+  - **Type:** gp2 (General Purpose SSD)
+  - **Reclaim Policy:** Delete (deletes the volume when the PVC is deleted)
 
 2.**gp2-retain-sc1**
-
-- **Provisioner:** ebs.csi.aws.com
-- **Filesystem Type:** ext4
-- **Type:** gp2 (General Purpose SSD)
-- **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
-- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
-- **Allow Volume Expansion:** true (enables volume expansion)
+  - **Type:** gp2 (General Purpose SSD)
+  - **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
 
 3.**gp2-delete-sc** 
-
-- **Provisioner:** ebs.csi.aws.com
-- **Filesystem Type:** ext4
-- **Type:** gp3 (General Purpose SSD)
-- **Reclaim Policy:** Delete (deletes the volume when the PVC is deleted)
-- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
-- **Allow Volume Expansion:** true (enables volume expansion)
+  - **Type:** gp3 (General Purpose SSD)
+  - **Reclaim Policy:** Delete (deletes the volume when the PVC is deleted)
 
 4.**gp2-retain-sc1**
-
-- **Provisioner:** ebs.csi.aws.com
-- **Filesystem Type:** ext4
-- **Type:** gp3 (General Purpose SSD)
-- **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
-- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
-- **Allow Volume Expansion:** true (enables volume expansion)
+  - **Type:** gp3 (General Purpose SSD)
+  - **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
