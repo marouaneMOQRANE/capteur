@@ -10,6 +10,9 @@ The AWS layer of our architecture provides the foundational infrastructure that 
 
 ### EKS Cluster Configuration
 
+#### Managed Node Groups
+
+
 - **Cluster Name:** ${CLUSTER_NAME}
 - **Region:** ${AWS_REGION}
 - **Kubernetes Version:** 1.29
@@ -57,3 +60,40 @@ The AWS layer of our architecture provides the foundational infrastructure that 
    - **Desired Capacity:** 6
    - **Spot Instances:** Enabled
 
+#### Storage
+
+In our architecture, we have implemented several Kubernetes StorageClass objects to manage persistent storage efficiently. These storage classes define how storage is dynamically provisioned and managed within our EKS cluster, using Amazon EBS (Elastic Block Store) as the underlying storage provider. Below are the details of the configured storage classes:
+1.**gp2-delete-sc** 
+
+- **Provisioner:** ebs.csi.aws.com
+- **Filesystem Type:** ext4
+- **Type:** gp2 (General Purpose SSD)
+- **Reclaim Policy:** Delete (deletes the volume when the PVC is deleted)
+- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
+
+2.**gp2-retain-sc1**
+
+- **Provisioner:** ebs.csi.aws.com
+- **Filesystem Type:** ext4
+- **Type:** gp2 (General Purpose SSD)
+- **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
+- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
+- **Allow Volume Expansion:** true (enables volume expansion)
+
+3.**gp2-delete-sc** 
+
+- **Provisioner:** ebs.csi.aws.com
+- **Filesystem Type:** ext4
+- **Type:** gp3 (General Purpose SSD)
+- **Reclaim Policy:** Delete (deletes the volume when the PVC is deleted)
+- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
+- **Allow Volume Expansion:** true (enables volume expansion)
+
+4.**gp2-retain-sc1**
+
+- **Provisioner:** ebs.csi.aws.com
+- **Filesystem Type:** ext4
+- **Type:** gp3 (General Purpose SSD)
+- **Reclaim Policy:** Retain (retains the volume when the PVC is deleted)
+- **Volume Binding Mode:** WaitForFirstConsumer (binds the volume to the node where the pod is scheduled)
+- **Allow Volume Expansion:** true (enables volume expansion)
